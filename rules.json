@@ -1,0 +1,47 @@
+{
+  "TAXONOMY": {
+    "BRANDS": {
+      "Asus": { "synonyms": ["asus", "rog", "tuf"], "tier": "TIER_1" },
+      "Msi": { "synonyms": ["msi", "micro-star"], "tier": "TIER_1" },
+      "Logitech": { "synonyms": ["logitech", "logi"], "tier": "TIER_1" },
+      "Razer": { "synonyms": ["razer"], "tier": "TIER_1" },
+      "Corsair": { "synonyms": ["corsair"], "tier": "TIER_1" },
+      "Rampage": { "synonyms": ["rampage", "everest"], "tier": "TIER_2" },
+      "Gamepower": { "synonyms": ["gamepower"], "tier": "TIER_2" },
+      "Unknown": { "synonyms": [], "tier": "UNKNOWN" }
+    },
+    "CATEGORIES": {
+      "Monitor": { "regex": "(monitor|monitör|hz|ips)", "dominant_spec": "refresh_rate" },
+      "Ekran Kartı": { "regex": "(ekran kartı|gpu|rtx|gtx)", "dominant_spec": "gpu_tier" },
+      "Mouse": { "regex": "(mouse|fare|dpi)", "dominant_spec": "connectivity" },
+      "Klavye": { "regex": "(klavye|keyboard|switch|mekanik)", "dominant_spec": "connectivity" },
+      "SSD": { "regex": "(ssd|nvme|m\\.2|sata)", "dominant_spec": "storage_type" }
+    },
+    "SPECS": {
+      "refresh_rate": { "regex": "(144hz|165hz|240hz|360hz)" },
+      "gpu_tier": { "regex": "(4090|4080|4070|3090|3080|3070|3060)" },
+      "connectivity": { "regex": "(kablosuz|wireless|bluetooth|bt)" },
+      "storage_type": { "regex": "(nvme|m\\.2|sata)" }
+    }
+  },
+  "SELECTORS": {
+    "strategies": [
+      {
+        "name": "Standard_List",
+        "container": "div.search-result-item",
+        "title": ".classifiedTitle",
+        "price": ".searchResultsPriceValue",
+        "link": "a.classifiedTitle",
+        "id": "data-id"
+      },
+      {
+        "name": "Alternate_Table",
+        "container": "tr.searchResultsItem",
+        "title": ".classifiedTitle",
+        "price": ".classified-price",
+        "link": "a.title",
+        "id": "data-classified-id"
+      }
+    ]
+  }
+}
